@@ -21,7 +21,7 @@
     "moduleResolution": "node"
   },
   "include": [
-    "pages/**/*"
+    "pages/**/*",
   ],
   "exclude": [
     "node_modules"
