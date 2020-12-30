@@ -16,7 +16,9 @@ export class MovielistService {
 
   async insertOne(@Param() movieName): Promise<void> {
     await this.movieListRepository.insert({
-      movieName: 'Avengers',
+      movieName: movieName,
     });
+
+    // return await this.movieListRepository.find();
   }
 }
