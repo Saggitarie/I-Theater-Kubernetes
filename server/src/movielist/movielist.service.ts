@@ -10,8 +10,8 @@ export class MovielistService {
     private movieListRepository: Repository<MovieList>,
   ) {}
 
-  fetchAll(): Promise<MovieList[]> {
-    return this.movieListRepository.find();
+  async fetchAll(): Promise<MovieList[]> {
+    return await this.movieListRepository.find();
   }
 
   async insertOne(@Param() movieName): Promise<void> {

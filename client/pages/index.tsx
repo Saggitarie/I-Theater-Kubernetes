@@ -1,23 +1,25 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { copyFileSync } from 'fs';
+import {MovieListType} from "../interface/movie"
 
 export default function Home(): React.ReactElement  {
   const [movieName, setMovieName] = useState<string>("");
-  const [movieList, setMovieList] = useState<Array<any>>([]);
+  const [movieList, setMovieList] = useState<Array<MovieListType>>([]);
 
   useEffect(() => {
     console.log(movieList)
   }, [movieList]);
 
   useEffect(() => {
-    let movieList = "";
-    const fetchMovieList = async (): Promise<void> => {
-      movieList = await axios.get("/api/movielist");
-    }
+    let tmp: any = "";
 
-    console.log("Movielist", movieList)
+    const fetchMovieList = async (): Promise<void> => {
+      let {data} = await axios.get("/api/movielist");
+      tmp = data;
+
+      setMovieList(tmp);
+    }
     
     fetchMovieList();
   }, [])
@@ -58,12 +60,12 @@ export default function Home(): React.ReactElement  {
           </div>
         </div>
         <div>
-          {movieList.map((el:any) => {
+          {movieList.map((el: MovieListType, index: number) => {
             if(movieList.length === 0){
               return (<div></div>)
             } else {
               return (
-                <div className="result result__element">
+                <div key={index} className="result result__element">
                   <div className="result__row--number">
                     {el.id}
                   </div>
