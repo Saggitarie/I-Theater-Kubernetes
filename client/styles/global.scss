@@ -13,9 +13,9 @@
 @import 'layout/header', 'layout/footer';
 
 // 5. Components
-@import 'components/users';
-@import 'components/form';
+@import 'components/movielistrows';
 @import 'components/button';
+@import 'components/input';
 
 // 6. Page-specific styles
 @import 'pages/home';

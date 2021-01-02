@@ -1,7 +1,13 @@
 /**
  * Basic typography style for copy text
  */
-// body {
-//   color: $text-color;
-//   font: normal 125% / 1.4 $text-font-stack;
-// }
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: $color-black;
+}
+
+.title {
+  font-family: 'Unlock', cursive, 'sans-serif';
+}
