@@ -4,6 +4,8 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       parserOptions: {
         project: ['./tsconfig.json'],
+        tsconfigRootDir: __dirname,
+        sourceType: 'module',
       },
     },
   ],
@@ -39,4 +41,4 @@ module.exports = {
       version: 'detect',
     },
   },
-}
+};

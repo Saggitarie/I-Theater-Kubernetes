@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import type { AppProps /*, AppContext */ } from 'next/app';
 
 import '../styles/global.scss';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -19,4 +19,4 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 //   return { ...appProps }
 // }
 
-export default MyApp
+export default MyApp;

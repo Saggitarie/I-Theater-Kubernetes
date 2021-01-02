@@ -12,14 +12,9 @@ export class MovielistController {
   ) {}
 
   @Get()
-  fetchAll(@Req() request: Request): any {
+  fetchAll(): any {
     return this.movieListService.fetchAll();
   }
-
-  // @Get()
-  // listenTo(): any {
-  //   console.log(this.movieListSubscriber.afterInsert(event: Insert));
-  // }
 
   @Post()
   insertOne(@Req() request: Request): void {

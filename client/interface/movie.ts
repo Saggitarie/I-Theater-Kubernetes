@@ -1,6 +1,4 @@
-type MovieListType = {
-  id: number,
-  movieName: string
-}
-
-export {MovieListType}
+export type MovieListType = {
+  id: number;
+  movieName: string;
+};
