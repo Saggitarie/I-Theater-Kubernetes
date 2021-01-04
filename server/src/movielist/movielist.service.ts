@@ -2,6 +2,7 @@ import { Injectable, Param } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { MovieList } from './movielist.entity';
+import { Movielist } from './movielist.interface';
 
 @Injectable()
 export class MovielistService {
@@ -10,7 +11,7 @@ export class MovielistService {
     private movieListRepository: Repository<MovieList>,
   ) {}
 
-  async fetchAll(): Promise<MovieList[]> {
+  async fetchAll(): Promise<Movielist[]> {
     return await this.movieListRepository.find();
   }
 
@@ -18,7 +19,5 @@ export class MovielistService {
     await this.movieListRepository.insert({
       movieName: movieName,
     });
-
-    // return await this.movieListRepository.find();
   }
 }

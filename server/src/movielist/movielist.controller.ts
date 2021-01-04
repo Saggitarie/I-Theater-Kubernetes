@@ -3,6 +3,7 @@ import { MovielistService } from './movielist.service';
 
 import { Request } from 'express';
 import { MovielistSubscriber } from './movielist.subscriber';
+import { Movielist } from './movielist.interface';
 
 @Controller('movielist')
 export class MovielistController {
@@ -12,7 +13,7 @@ export class MovielistController {
   ) {}
 
   @Get()
-  fetchAll(): any {
+  fetchAll(): Promise<Movielist[]> {
     return this.movieListService.fetchAll();
   }
 
