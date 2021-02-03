@@ -1,11 +1,14 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { AuthState } from '../stateManagement/auth/slice';
 import axios from 'axios';
 import { MovieListType } from '../interface/movie';
 
 export default function Home(): React.ReactElement {
   const [movieName, setMovieName] = useState<string>('');
   const [movieList, setMovieList] = useState<Array<MovieListType>>([]);
+  const currentState = useSelector((state: { authentication: AuthState }) => state).authentication;
 
   useEffect(() => {
     console.log(movieList);
@@ -42,7 +45,7 @@ export default function Home(): React.ReactElement {
   return (
     <div>
       <Head>
-        <title>I Theater</title>
+        <title>Changed Title</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -53,7 +56,7 @@ export default function Home(): React.ReactElement {
       <div className="wrapper">
         <div className="search">
           <div>
-            <h1 className="title">ITheater</h1>
+            <h1 className="title">ITheater Update</h1>
           </div>
           <div>
             <input

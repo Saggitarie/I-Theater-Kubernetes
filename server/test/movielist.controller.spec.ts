@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MovielistController } from './movielist.controller';
+import { MovielistController } from '../src/movielist/movielist.controller';
 
 describe('MovielistController', () => {
   let controller: MovielistController;

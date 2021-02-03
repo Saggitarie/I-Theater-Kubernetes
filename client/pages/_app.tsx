@@ -1,10 +1,16 @@
 import React from 'react';
 import type { AppProps /*, AppContext */ } from 'next/app';
+import { Provider } from 'react-redux';
+import createStore from '../stateManagement/createStore';
 
 import '../styles/global.scss';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  return <Component {...pageProps} />;
+  return (
+    <Provider store={createStore()}>
+      <Component {...pageProps} />
+    </Provider>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for

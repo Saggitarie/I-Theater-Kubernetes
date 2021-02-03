@@ -1,0 +1,35 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+build:
+  artifacts:
+  - image: saggitarie/client-image
+    context: client
+    sync:
+      manual:
+        - src: '**/*.ts'
+          dest: .
+        - src: '**/*.tsx'
+          dest: .
+        - src: '**/*.scss'
+          dest: .
+        - src: '**/*.html'
+          dest: .
+    docker:
+      dockerfile: Dockerfile.dev
+  - image: saggitarie/server-image
+    context: server
+    sync:
+      manual:
+        - src: '**/*.ts'
+          dest: .
+    docker:
+      dockerfile: Dockerfile.dev
+  local:
+    push: false
+deploy:
+  kubectl:
+    manifests:
+    - ./k8s/client-deployment.yml
+    - ./k8s/server-deployment.yml
+    - ./k8s/client-cluster-ip-service.yml
+    - ./k8s/server-cluster-ip-service.yml
